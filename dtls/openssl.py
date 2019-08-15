@@ -64,6 +64,9 @@ if sys.platform.startswith('win'):
     ssldll_path = path.join(dll_path, "libssl.dll")
     libcrypto = CDLL(cryptodll_path)
     libssl = CDLL(ssldll_path)
+elif sys.platform == 'darwin':
+    libcrypto = CDLL("libcrypto.dylib")
+    libssl = CDLL("libssl.dylib")
 else:
     libcrypto = CDLL("libcrypto.so.1.1")
     libssl = CDLL("libssl.so.1.1")
