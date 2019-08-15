@@ -47,11 +47,11 @@ if __name__ == "__main__":
     plat_dist = dist and args.plat_name
     if dist:
         try:
-            from pypandoc import convert
-            long_description = convert("README.md", "rst")\
+            from pypandoc import convert_file
+            long_description = convert_file("README.md", "rst")\
                                .translate({ord("\r"): None})
             with open("README.rst", "wb") as readme:
-                readme.write(long_description)
+                readme.write(bytes(long_description,'utf-8'))
         except OSError:
             # pandoc is not installed, fallback to using raw contents
             long_description = open('README.md').read()
