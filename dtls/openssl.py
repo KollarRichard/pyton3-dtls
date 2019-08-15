@@ -655,7 +655,7 @@ __all__ = [
 list(map(lambda x: _make_function(*x), (
     ("OPENSSL_init_ssl", libssl,
      #((c_int, "ret"),)),
-     ((c_int, "ret"), (c_uint64, "opts"),)),
+     ((c_int, "ret"), (c_uint64, "opts"), (c_void_p, "settings"))),
      ("OpenSSL_version", libcrypto,
       ((c_char_p, "ret"), (c_int, "t"))),
     ("DTLS_server_method", libssl,
